@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MainBundle\Entity\Anuncio" table="anuncio">
+    <indexes>
+      <index name="fk_publicacion_tipo_idx" columns="tipo"/>
+      <index name="fk_anuncio_empresa1_idx" columns="empresa"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="descripcion" type="string" column="descripcion" length="255" nullable="true"/>
+    <many-to-one field="empresa" target-entity="Empresa">
+      <join-columns>
+        <join-column name="empresa" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tipo" target-entity="Tipo">
+      <join-columns>
+        <join-column name="tipo" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Categorias list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorium in categorias %}
+            <tr>
+                <td><a href="{{ path('categorias_show', { 'id': categorium.id }) }}">{{ categorium.nombre }}</a></td>
+                <td>{{ categorium.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('categorias_show', { 'id': categorium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('categorias_edit', { 'id': categorium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorias_new') }}">Create a new categorium</a>
+        </li>
+    </ul>
+{% endblock %}
