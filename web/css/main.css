@@ -1,0 +1,45 @@
+.navbar-brand {
+    font-size: 14px;
+}
+
+#map {
+    padding-top: 10px;
+    width: 100s%;
+    height: 600px;
+    background: white;
+    margin: auto;
+}
+
+#video_puntodeinteres {
+    width: 600px;
+    height: 400px;
+    background: black;
+}
+
+#imagen_puntodeinteres {
+    width: 600px;
+    height: 400px;
+    background: black;
+}
+
+#myCarousel {
+    width: 600px;
+    height: 400px;
+    margin-bottom: 40px;
+    background: black;
+}
+
+header #logo {
+    width: 280px;
+    height: 110px;
+}
+
+body {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+body footer {
+    text-align: center;
+    padding-top: 5%;
+}

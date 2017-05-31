@@ -105,19 +105,6 @@ class Imagen
     }
 
     /**
-     * Set id
-     *
-     * @param integer $id
-     * @return Imagen
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * Get id
      *
      * @return integer 
@@ -133,7 +120,7 @@ class Imagen
      * @param \MainBundle\Entity\Anuncio $anuncio
      * @return Imagen
      */
-    public function setAnuncio(\MainBundle\Entity\Anuncio $anuncio)
+    public function setAnuncio(\MainBundle\Entity\Anuncio $anuncio = null)
     {
         $this->anuncio = $anuncio;
 

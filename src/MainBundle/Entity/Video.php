@@ -77,19 +77,6 @@ class Video
     }
 
     /**
-     * Set id
-     *
-     * @param integer $id
-     * @return Video
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
      * Get id
      *
      * @return integer 
@@ -105,7 +92,7 @@ class Video
      * @param \MainBundle\Entity\Anuncio $anuncio
      * @return Video
      */
-    public function setAnuncio(\MainBundle\Entity\Anuncio $anuncio)
+    public function setAnuncio(\MainBundle\Entity\Anuncio $anuncio = null)
     {
         $this->anuncio = $anuncio;
 

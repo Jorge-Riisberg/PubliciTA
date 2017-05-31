@@ -1,7 +1,3 @@
-main_categoria:
-    resource: "@MainBundle/Controller/CategoriaController.php"
-    type:     annotation
-
 main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /

@@ -4,21 +4,17 @@ namespace MainBundle\Controller;
 
 use MainBundle\Entity\Categoria;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Categorium controller.
  *
- * @Route("categorias")
  */
 class CategoriaController extends Controller
 {
     /**
      * Lists all categorium entities.
      *
-     * @Route("/", name="categorias_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
@@ -34,12 +30,10 @@ class CategoriaController extends Controller
     /**
      * Creates a new categorium entity.
      *
-     * @Route("/new", name="categorias_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
-        $categorium = new Categorium();
+        $categorium = new Categoria();
         $form = $this->createForm('MainBundle\Form\CategoriaType', $categorium);
         $form->handleRequest($request);
 
@@ -48,7 +42,7 @@ class CategoriaController extends Controller
             $em->persist($categorium);
             $em->flush();
 
-            return $this->redirectToRoute('categorias_show', array('id' => $categorium->getId()));
+            return $this->redirectToRoute('categoria_show', array('id' => $categorium->getId()));
         }
 
         return $this->render('categoria/new.html.twig', array(
@@ -60,8 +54,6 @@ class CategoriaController extends Controller
     /**
      * Finds and displays a categorium entity.
      *
-     * @Route("/{id}", name="categorias_show")
-     * @Method("GET")
      */
     public function showAction(Categoria $categorium)
     {
@@ -76,8 +68,6 @@ class CategoriaController extends Controller
     /**
      * Displays a form to edit an existing categorium entity.
      *
-     * @Route("/{id}/edit", name="categorias_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Categoria $categorium)
     {
@@ -88,7 +78,7 @@ class CategoriaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categorias_edit', array('id' => $categorium->getId()));
+            return $this->redirectToRoute('categoria_edit', array('id' => $categorium->getId()));
         }
 
         return $this->render('categoria/edit.html.twig', array(
@@ -101,8 +91,6 @@ class CategoriaController extends Controller
     /**
      * Deletes a categorium entity.
      *
-     * @Route("/{id}", name="categorias_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Categoria $categorium)
     {
@@ -115,7 +103,7 @@ class CategoriaController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('categorias_index');
+        return $this->redirectToRoute('categoria_index');
     }
 
     /**
@@ -128,7 +116,7 @@ class CategoriaController extends Controller
     private function createDeleteForm(Categoria $categorium)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('categorias_delete', array('id' => $categorium->getId())))
+            ->setAction($this->generateUrl('categoria_delete', array('id' => $categorium->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

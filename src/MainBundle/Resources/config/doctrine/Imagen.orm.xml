@@ -2,17 +2,18 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="MainBundle\Entity\Imagen" table="imagen">
     <indexes>
-      <index name="fk_imagen_anuncio1_idx" columns="anuncio_id"/>
+      <index name="fk_imagen_anuncio1_idx" columns="anuncio"/>
     </indexes>
-    <id name="id" type="integer" column="id"/>
-    <id name="anuncio" association-key="true"/>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
     <field name="nombre" type="string" column="nombre" length="45" nullable="false"/>
     <field name="enlace" type="string" column="enlace" length="200" nullable="false"/>
     <field name="fechahora" type="datetime" column="fechahora" nullable="true"/>
-    <one-to-one field="anuncio" target-entity="Anuncio">
+    <many-to-one field="anuncio" target-entity="Anuncio">
       <join-columns>
-        <join-column name="anuncio_id" referenced-column-name="id"/>
+        <join-column name="anuncio" referenced-column-name="id"/>
       </join-columns>
-    </one-to-one>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

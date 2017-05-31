@@ -29,6 +29,18 @@ class Anuncio
      */
     private $tipo;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $categorias;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set descripcion
@@ -107,5 +119,38 @@ class Anuncio
     public function getTipo()
     {
         return $this->tipo;
+    }
+
+    /**
+     * Add categorias
+     *
+     * @param \MainBundle\Entity\Categoria $categorias
+     * @return Anuncio
+     */
+    public function addCategoria(\MainBundle\Entity\Categoria $categorias)
+    {
+        $this->categorias[] = $categorias;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorias
+     *
+     * @param \MainBundle\Entity\Categoria $categorias
+     */
+    public function removeCategoria(\MainBundle\Entity\Categoria $categorias)
+    {
+        $this->categorias->removeElement($categorias);
+    }
+
+    /**
+     * Get categorias
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategorias()
+    {
+        return $this->categorias;
     }
 }

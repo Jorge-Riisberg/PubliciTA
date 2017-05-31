@@ -19,5 +19,15 @@
         <join-column name="tipo" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
+  	<many-to-many field="categorias" target-entity="Categoria">
+  	    <join-table name="anuncios_categorias">
+  	        <join-columns>
+  	            <join-column name="anuncio_id" referenced-column-name="id" on-delete="CASCADE" />
+  	        </join-columns>
+  	        <inverse-join-columns>
+  	            <join-column name="categoria_id" referenced-column-name="id" on-delete="CASCADE" />
+  	        </inverse-join-columns>
+  	    </join-table>
+  	</many-to-many>    
   </entity>
 </doctrine-mapping>

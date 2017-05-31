@@ -1,3 +1,27 @@
+main_anuncio:
+    resource: "@MainBundle/Resources/config/routing/anuncio.yml"
+    prefix:   /anuncio
+
+main_categoria:
+    resource: "@MainBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+main_empresa:
+    resource: "@MainBundle/Resources/config/routing/empresa.yml"
+    prefix:   /empresa
+
+main_imagen:
+    resource: "@MainBundle/Resources/config/routing/imagen.yml"
+    prefix:   /imagen
+
+main_tipo:
+    resource: "@MainBundle/Resources/config/routing/tipo.yml"
+    prefix:   /tipo
+
+main_video:
+    resource: "@MainBundle/Resources/config/routing/video.yml"
+    prefix:   /video
+
 main_homepage:
     path:     /
-    defaults: { _controller: MainBundle:Default:index }
+    defaults: { _controller: "MainBundle:Categoria:index" }
