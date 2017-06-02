@@ -1,7 +1,3 @@
-main_anuncio:
-    resource: "@MainBundle/Resources/config/routing/anuncio.yml"
-    prefix:   /anuncio
-
 main_categoria:
     resource: "@MainBundle/Resources/config/routing/categoria.yml"
     prefix:   /categoria
@@ -23,5 +19,5 @@ main_video:
     prefix:   /video
 
 main_homepage:
-    path:     /
-    defaults: { _controller: "MainBundle:Categoria:index" }
+    resource: "@MainBundle/Resources/config/routing/anuncio.yml"
+    prefix:   / 

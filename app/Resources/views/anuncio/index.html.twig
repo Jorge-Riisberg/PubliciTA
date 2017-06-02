@@ -21,9 +21,11 @@
                         <li>
                             <a href="{{ path('anuncio_show', { 'id': anuncio.id }) }}">show</a>
                         </li>
-                        <li>
-                            <a href="{{ path('anuncio_edit', { 'id': anuncio.id }) }}">edit</a>
-                        </li>
+                        {% if app.user %}
+                            <li>
+                                <a href="{{ path('anuncio_edit', { 'id': anuncio.id }) }}">edit</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </td>
             </tr>
@@ -31,9 +33,8 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('anuncio_new') }}">Create a new anuncio</a>
-        </li>
-    </ul>
+    {% if app.user %}
+        <br><a href="{{ path('anuncio_new') }}" class="btn btn-success btn-md" role="button">Nuevo Anuncio</a>
+    {% endif %}
+
 {% endblock %}

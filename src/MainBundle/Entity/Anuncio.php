@@ -35,11 +35,23 @@ class Anuncio
     private $categorias;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imagenes;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $videos;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->videos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -153,4 +165,8 @@ class Anuncio
     {
         return $this->categorias;
     }
+
+    public function __toString() {
+        return $this->nombre;
+    }    
 }
