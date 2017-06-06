@@ -14,15 +14,26 @@ class LoadAnuncioData extends AbstractFixture implements OrderedFixtureInterface
 
         //Seguro Hogar - La Caja Seguros
         $SeguroHogar = new Anuncio();
-        $SeguroHogar->setEmpresa($this->getReference('LaCajaSeguros'));
-        $SeguroHogar->setTipo($this->getReference('Tipo1'));
-        $SeguroHogar->setDescripcion('Seguro Hogar. Asegura tu casa por 1000 por mes');   
+        $SeguroHogar->setEmpresa($this->getReference('LaCaja'));
+        $SeguroHogar->setTipo($this->getReference('Tipo12_3'));
+        $SeguroHogar->setNombre('Seguro Hogar');
+        $SeguroHogar->setDescripcion('50% descuento en Seguro Hogar');
         $SeguroHogar->addCategoria($this->getReference('Seguros'));
         $manager->persist($SeguroHogar);
+
+        // 2x1 Jeans Tascani - Marco Polo
+        $JeansTascani = new Anuncio();
+        $JeansTascani->setEmpresa($this->getReference('MarcoPolo'));
+        $JeansTascani->setTipo($this->getReference('Tipo12_4'));
+        $JeansTascani->setNombre('Jeans Tascani');
+        $JeansTascani->setDescripcion('2x1 Jeans Tascani');
+        $JeansTascani->addCategoria($this->getReference('Indumentaria'));
+        $manager->persist($JeansTascani);        
 
         $manager->flush();
 
         $this->addReference('SeguroHogar', $SeguroHogar);
+        $this->addReference('JeansTascani', $JeansTascani);
     }
 
     public function getOrder()

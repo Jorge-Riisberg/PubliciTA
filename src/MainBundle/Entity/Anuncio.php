@@ -9,6 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Anuncio
 {
+
+    /**
+     * @var string
+     */
+    private $nombre;
+
     /**
      * @var string
      */
@@ -52,6 +58,29 @@ class Anuncio
         $this->categorias = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->videos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return Categoria
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
     }
 
     /**

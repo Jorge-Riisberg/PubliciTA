@@ -12,14 +12,26 @@ class LoadTipoData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
 
-        $Tipo1 = new Tipo();
-        $Tipo1->setNombre('Tipo1');
-        $Tipo1->setDescripcion('200x400px');
-        $manager->persist($Tipo1);
+        $Tipo12_3 = new Tipo();
+        $Tipo12_3->setNombre('12:3');
+        $Tipo12_3->setDescripcion('4 bloques bootstrap');
+        $manager->persist($Tipo12_3);
+
+        $Tipo12_4 = new Tipo();
+        $Tipo12_4->setNombre('12:4');
+        $Tipo12_4->setDescripcion('3 bloques bootstrap');
+        $manager->persist($Tipo12_4); 
+
+        $Tipo12_6 = new Tipo();
+        $Tipo12_6->setNombre('12:6');
+        $Tipo12_6->setDescripcion('2 bloques bootstrap');
+        $manager->persist($Tipo12_6);               
 
         $manager->flush();
 
-        $this->addReference('Tipo1', $Tipo1);
+        $this->addReference('Tipo12_3', $Tipo12_3);
+        $this->addReference('Tipo12_4', $Tipo12_4);
+        $this->addReference('Tipo12_6', $Tipo12_6);
     }
 
     public function getOrder()

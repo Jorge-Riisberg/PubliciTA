@@ -5,6 +5,7 @@ namespace MainBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Doctrine\ORM\EntityRepository;
 
 class ImagenType extends AbstractType
 {
@@ -13,7 +14,8 @@ class ImagenType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')->add('enlace')->add('fechahora')->add('anuncio');
+        $builder->add('nombre')->add('enlace')->add('anuncio')->add('imagen','file',array('label'=>'Imágen', 'required'=>true, 'attr'=>array('accept'=>'image/*')));
+
     }
     
     /**

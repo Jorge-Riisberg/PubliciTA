@@ -16,9 +16,34 @@ class LoadCategoriaData extends AbstractFixture implements OrderedFixtureInterfa
         $Seguros->setNombre('Seguros');
         $manager->persist($Seguros);
 
+        $Indumentaria = new Categoria();
+        $Indumentaria->setNombre('Indumentaria');
+        $manager->persist($Indumentaria); 
+
+        $Rotiserias = new Categoria();
+        $Rotiserias->setNombre('Rotiserias');
+        $manager->persist($Rotiserias);
+
+        $Confiterias = new Categoria();
+        $Confiterias->setNombre('Confiterias');
+        $manager->persist($Confiterias); 
+
+        $Supermercados = new Categoria();
+        $Supermercados->setNombre('Supermercados');
+        $manager->persist($Supermercados);
+
+        $Librerias = new Categoria();
+        $Librerias->setNombre('Librerias');
+        $manager->persist($Librerias);                                
+
         $manager->flush();
 
         $this->addReference('Seguros', $Seguros);
+        $this->addReference('Indumentaria', $Indumentaria);
+        $this->addReference('Rotiserias', $Rotiserias);
+        $this->addReference('Confiterias', $Confiterias);
+        $this->addReference('Supermercados', $Supermercados);
+        $this->addReference('Librerias', $Librerias);
     }
 
     public function getOrder()

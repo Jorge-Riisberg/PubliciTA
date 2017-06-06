@@ -8,6 +8,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
+    <field name="nombre" type="string" column="nombre" length="45" nullable="false"/>
     <field name="descripcion" type="string" column="descripcion" length="255" nullable="true"/>
     <many-to-one field="empresa" target-entity="Empresa">
       <join-columns>
