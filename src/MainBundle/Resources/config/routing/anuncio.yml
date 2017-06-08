@@ -22,3 +22,8 @@ anuncio_delete:
     path:     anuncio/{id}/delete
     defaults: { _controller: "MainBundle:Anuncio:delete" }
     methods:  DELETE
+
+anuncios_categoria:
+    path:     anuncios/categoria/{categoriaId}
+    defaults: { _controller: "MainBundle:Anuncio:categoria" }
+    methods:  GET    

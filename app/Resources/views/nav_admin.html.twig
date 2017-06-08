@@ -1,59 +1,64 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+<div class="navbar-wrapper">
+  <div class="container">
+    <nav class="navbar navbar-inverse">
 
-      <a class="navbar-brand" href="{{path('anuncio_index')}}"><span class="glyphicon glyphicon-home"></span> PubliciTA</a>
-    
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-      <ul class="nav navbar-nav">
+        <a class="navbar-brand" href="{{path('anuncio_index')}}"><span class="glyphicon glyphicon-home"></span> PubliciTA</a>
+      
+      </div>
+     
+      <div class="collapse navbar-collapse" id="myNavbar">
 
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-map-marker"></span> Anuncios<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{path('anuncio_new')}}"><span class="glyphicon glyphicon-plus"></span> Nuevo Anuncio</a></li>
-            <li><a href="{{path('anuncio_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Anuncios</a></li>
-          </ul>
-        </li>
+        <ul class="nav navbar-nav">
 
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bookmark"></span> Categoria<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{path('categoria_new')}}"><span class="glyphicon glyphicon-plus"></span> Nueva Categoria</a></li>
-            <li><a href="{{path('categoria_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Categorias</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-map-marker"></span> Anuncios<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{path('anuncio_new')}}"><span class="glyphicon glyphicon-plus"></span> Nuevo Anuncio</a></li>
+              <li><a href="{{path('anuncio_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Anuncios</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bookmark"></span> Categoria<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{path('categoria_new')}}"><span class="glyphicon glyphicon-plus"></span> Nueva Categoria</a></li>
+              <li><a href="{{path('categoria_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Categorias</a></li>
+            </ul>
+          </li>
 
 
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-camera"></span> Multimedia<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{path('imagen_new')}}"><span class="glyphicon glyphicon-picture"></span> Nueva Imágen</a></li>
-            <li><a href="{{path('imagen_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Imágenes</a></li>
-            <li class="divider"></li>
-            <li><a href="{{path('video_new')}}"><span class="glyphicon glyphicon-facetime-video"></span> Nuevo video</a></li>
-            <li><a href="{{path('video_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de videos</a></li>
-          </ul>
-        </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-camera"></span> Multimedia<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{path('imagen_new')}}"><span class="glyphicon glyphicon-picture"></span> Nueva Imágen</a></li>
+              <li><a href="{{path('imagen_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de Imágenes</a></li>
+              <li class="divider"></li>
+              <li><a href="{{path('video_new')}}"><span class="glyphicon glyphicon-facetime-video"></span> Nuevo video</a></li>
+              <li><a href="{{path('video_index')}}"><span class="glyphicon glyphicon-list-alt"></span> Listado de videos</a></li>
+            </ul>
+          </li>
 
-      </ul>
+        </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        {% if app.user %}
-           {# user is logged in #}
-           <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
-        {% else %}
-           {# user is not logged in #}
-           <li><a href="{{path('fos_user_security_login')}}"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
-        {% endif %}
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if app.user %}
+             {# user is logged in #}
+             <li><a href="{{path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+          {% else %}
+             {# user is not logged in #}
+             <li><a href="{{path('fos_user_security_login')}}"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+          {% endif %}
+        </ul>
 
-    </div>
+      </div>
+
+    </nav>
   </div>
-</nav>
+</div>

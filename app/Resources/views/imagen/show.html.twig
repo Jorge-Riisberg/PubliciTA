@@ -10,6 +10,10 @@
                 <td>{{ imagen.nombre }}</td>
             </tr>
             <tr>
+                <th>Fechahora</th>
+                <td>{% if imagen.fechaHora %}{{ imagen.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
                 <th>Enlace</th>
                 <td>{{ imagen.enlace }}</td>
             </tr>

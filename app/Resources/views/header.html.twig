@@ -1,7 +1,6 @@
 <header>
 	<!-- <img id="logo" class="img-responsive" src="{{asset('img/logo.png')}}"> -->
-	<img id="banner" class="img-responsive" src="{{asset('img/banner.png')}}"> 
-</header>
+	<!-- <img id="banner" class="img-responsive" src="{{asset('img/banner.png')}}"> -->
 
 {% block nav %}
   {% if app.user %} 
@@ -10,3 +9,60 @@
     {{ include('nav.html.twig') }}
   {% endif %}  
 {% endblock %}
+
+<div id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    
+    <div class="item active">
+      <img src="{{asset('img/indumentaria.jpg')}}" style="width:100%" class="img-responsive">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Outlet Indumentaria</h1>
+          <p>Aca va algo escrito</p>
+          <p><a class="btn btn-lg btn-primary" href="http://getbootstrap.com">Ver Ofertas</a>
+        </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item">
+      <img src="{{asset('img/supermercados.jpg')}}" class="img-responsive">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Super Ofertas</h1>
+          <p>Aca va algo escrito</p>
+          <p><a class="btn btn-lg btn-primary" href="#">Ver Ofertas</a></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item">
+      <img src="{{asset('img/seguro.png')}}" class="img-responsive">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Super Ofertas</h1>
+          <p>Aca va algo escrito</p>
+          <p><a class="btn btn-lg btn-danger" href="#">Ver Ofertas</a></p>
+        </div>
+      </div>
+    </div>    
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+  </a>  
+</div>
+<!-- /.carousel -->
+
+</header>

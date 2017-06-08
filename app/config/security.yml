@@ -35,4 +35,5 @@ security:
         - { path: ^/imagen, role: ROLE_USER }
         - { path: ^/tipo, role: ROLE_USER }
         - { path: ^/video, role: ROLE_USER }
-        - { path: ^/anuncio, role: ROLE_USER }
+        - { path: ^/anuncios, role: IS_AUTHENTICATED_ANONYMOUSLY }         
+        - { path: ^/anuncio, role: ROLE_USER }       

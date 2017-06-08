@@ -12,6 +12,35 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class AnuncioController extends Controller
 {
+
+
+    /**
+     * Listar todos los anuncios de una categoria
+     *
+     */
+    public function categoriaAction($categoriaId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categoria = $em->getRepository('MainBundle:Categoria')->findOneById($categoriaId);
+
+        $categorias = $em->getRepository('MainBundle:Categoria')->findAll();
+
+        $anuncios = $em->getRepository('MainBundle:Anuncio');
+
+        $query = $anuncios->createQueryBuilder('a')
+            ->innerJoin('a.categorias', 'c')
+            ->where('c.id = :categoria_id')
+            ->setParameter('categoria_id', $categoriaId)
+            ->getQuery()->getResult();           
+
+        return $this->render('anuncio/categoria.html.twig', array(
+            'anuncios' => $query,
+            'categoria' => $categoria->getNombre(),
+            'categorias' => $categorias
+        ));
+    }
+
     /**
      * Lists all anuncio entities.
      *
@@ -22,8 +51,11 @@ class AnuncioController extends Controller
 
         $anuncios = $em->getRepository('MainBundle:Anuncio')->findAll();
 
+        $categorias = $em->getRepository('MainBundle:Categoria')->findAll();
+
         return $this->render('anuncio/index.html.twig', array(
             'anuncios' => $anuncios,
+            'categorias' => $categorias
         ));
     }
 

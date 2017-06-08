@@ -3,10 +3,11 @@
 {% block body %}
     <h1>Imagens list</h1>
 
-    <table>
+    <table id="tabla_buscar">
         <thead>
             <tr>
                 <th>Nombre</th>
+                <th>Fechahora</th>
                 <th>Enlace</th>
                 <th>Id</th>
                 <th>Actions</th>
@@ -16,6 +17,7 @@
         {% for imagen in imagens %}
             <tr>
                 <td><a href="{{ path('imagen_show', { 'id': imagen.id }) }}">{{ imagen.nombre }}</a></td>
+                <td>{% if imagen.fechaHora %}{{ imagen.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ imagen.enlace }}</td>
                 <td>{{ imagen.id }}</td>
                 <td>
